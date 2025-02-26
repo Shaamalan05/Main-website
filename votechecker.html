@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color:rgb(255, 99, 71);
+            margin: 0;
+        }
+
+        h2 {
+            text-align: center;
+            color: white;
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+
+        .container {
+            background: white;  
+            padding: 25px;
+            width: 350px;
+            border-radius: 12px;
+            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+
+        input {
+            width: 90%;
+            padding: 12px;
+            margin: 10px 0;
+            font-size: 18px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            text-align: center;
+            outline: none;
+            transition: 0.3s;
+        }
+
+        input:focus {
+            border-color: #2575fc;
+            box-shadow: 0px 0px 8px rgba(37, 117, 252, 0.5);
+        }
+
+        button {
+            padding: 12px;
+            font-size: 18px;
+            border: none;
+            background: #2575fc;
+            color: white;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: 0.3s;
+            width: 100%;
+            margin-top: 10px;
+        }
+
+        button:hover {
+            background: #6a11cb;
+        }
+
+        .output {
+            margin-top: 15px;
+            font-size: 20px;
+            font-weight: bold;
+            padding: 10px;
+            border-radius: 8px;
+        }
+
+        .eligible {
+            color: green;
+            background: #d4edda;
+        }
+
+        .not-eligible {
+            color: red;
+            background: #f8d7da;
+        }
+
+        .error {
+            color: red;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+
+    </style>
+<head>
+    <title>Vote Eligibility</title>
+
+    <script>
+
+        function checkVote() 
+        {
+            let firstName = document.getElementById("firstName").value;
+            let lastName = document.getElementById("lastName").value;
+            let age = parseInt(document.getElementById("age").value);
+            let resultText;
+            let picture = document.getElementById("result");
+
+            if (!firstName || !lastName || isNaN(age) || age < 0) {
+                alert("Please enter a valid name and age.");
+                return;
+            }
+
+            if (age >= 18) 
+            {
+                alert(firstName + ", you can vote!");
+                picture.src = "adultpictureblack.jpg";
+            } 
+            
+            else 
+            {
+                let yearsLeft = 18 - age;
+                alert(firstName + ", you need to wait another " + yearsLeft + " years to vote.");
+                picture.src = "child.jpg";
+
+            }
+
+            picture.style.display = "block";
+        }
+
+    </script>
+</head>
+
+<body>
+
+    <h2>Vote Check</h2>
+
+    <label>First Name:</label>
+    <input type="text" id="firstName" placeholder="Enter first name">
+
+    <br><br>
+
+    <label>Last Name:</label>
+    <input type="text" id="lastName" placeholder="Enter last name">
+
+    <br><br>
+
+    <label>Age:</label>
+    <input type="number" id="age" placeholder="Enter age">
+
+    <br><br>
+
+    <button onclick="checkVote()">Check</button>
+    <img id="result" src="" alt="" style="width: 150px; display: none;">
+
+</body>
+</html>
+

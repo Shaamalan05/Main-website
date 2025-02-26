@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Main Page</title>
+    
+    <!-- W3.CSS and Font Imports -->
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,700">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <style>
+        body {
+            font-family: "Poppins", sans-serif;
+            background-color: #121212;
+            color: #ffffff;
+            text-align: center;
+        }
+
+        .header {
+            padding: 100px 16px;
+            background: linear-gradient(135deg, #1a1a1a, #333333);
+        }
+
+        .header h1 {
+            font-size: 60px;
+            font-weight: 700;
+            letter-spacing: 4px;
+        }
+
+        .header p {
+            font-size: 20px;
+            font-weight: 300;
+            opacity: 0.8;
+        }
+
+        .button-container {
+            margin-top: 40px;
+        }
+
+        .big-button {
+            display: inline-block;
+            width: 300px;
+            padding: 20px;
+            font-size: 24px;
+            font-weight: bold;
+            color: white;
+            background: linear-gradient(135deg, #f57c00, #ff9800);
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            margin: 15px;
+            transition: 0.3s;
+            text-decoration: none;
+            box-shadow: 0px 4px 10px rgba(255, 152, 0, 0.3);
+        }
+
+        .big-button:hover {
+            transform: scale(1.1);
+            box-shadow: 0px 6px 20px rgba(255, 152, 0, 0.5);
+        }
+
+        .big-button i {
+            margin-right: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Header Section -->
+    <header class="header w3-container">
+        <h1>Main Page</h1>
+        <p>Main page of this website to navigate between personal info and tools</p>
+
+        <!-- Large Buttons -->
+        <div class="button-container">
+            <a href="PersonalInfo.html" class="big-button"><i class="fa fa-user"></i> Personal Info</a>
+            <a href="tools.html" class="big-button"><i class="fa fa-user"></i>Tools</a>
+        </div>
+    </header>
+
+</body>
+
+</html>
+

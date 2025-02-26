@@ -1,0 +1,134 @@
+ <!DOCTYPE html>
+<html>
+    <title>Modern BMI Calculator</title>
+    <style>
+    
+        body {
+            font-family: 'Poppins', sans-serif;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(135deg, #00c6ff, #0072ff);
+            margin: 0;
+        }
+
+     
+        h2 {
+            text-align: center;
+            color: white;
+            font-size: 32px;
+            margin-bottom: 15px;
+            letter-spacing: 1px;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+       
+        .container {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            padding: 25px;
+            width: 350px;
+            border-radius: 15px;
+            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        input {
+            width: 90%;
+            padding: 12px;
+            margin: 10px 0;
+            font-size: 18px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            text-align: center;
+            outline: none;
+            transition: 0.3s;
+            background: rgba(255, 255, 255, 0.6);
+        }
+
+        input:focus {
+            border-color: #0072ff;
+            box-shadow: 0px 0px 8px rgba(0, 114, 255, 0.5);
+        }
+
+        button {
+            padding: 12px;
+            font-size: 18px;
+            border: none;
+            background: #0072ff;
+            color: white;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: 0.3s;
+            width: 100%;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+
+        button:hover {
+            background: #005bb5;
+        }
+
+        .output {
+            margin-top: 15px;
+            font-size: 20px;
+            font-weight: bold;
+            padding: 10px;
+            border-radius: 8px;
+            color: white;
+            transition: 0.3s;
+        }
+
+        .underweight { background: #f7b731; } 
+        .normal { background: #2ecc71; } 
+        .overweight { background: #f39c12; } 
+        .obese { background: #e74c3c; } 
+        .extremelyObese {background: red;}
+
+      
+        .error {
+            color: red;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+
+
+    </style>
+</head>
+    <script>
+        function calculateBMI() {
+            let weight = parseFloat(document.getElementById("weight").value);
+            let height = parseFloat(document.getElementById("height").value) / 100; // Convert cm to meters
+
+            if (isNaN(weight) || isNaN(height) || height <= 0) {
+                alert("Please enter valid height and weight.");
+                return;
+            }
+
+            let bmi = weight / (height * height);
+            let status = "";
+            let color = "";
+
+            if (bmi < 18.5) { status = "Underweight"; color = "blue"; }
+            else if (bmi < 24.9) { status = "Normal"; color = "green"; }
+            else if (bmi < 29.9) { status = "Overweight"; color = "orange";}
+            else if (bmi < 39.9) { status = "Obese"; color = "orange";}
+            else { status = "Extremely Obese"; color = "red"; }
+
+            document.getElementById("result").innerText = `Your BMI is ${bmi.toFixed(2)} (${status})`;
+            document.getElementById("result").style.color = color;
+        }
+    </script>
+
+<body>
+    <a href="main.html">Home</a>
+    <h2>BMI Calculator</h2>
+    <input type="number" id="weight" placeholder="Enter weight (kg)">
+    <input type="number" id="height" placeholder="Enter height (cm)">
+    <button onclick="calculateBMI()">Calculate BMI</button>
+    <p id="result"></p>
+</body>
+</html>

@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Tools Dashboard</title>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
+    <style>
+        body {
+            font-family: "Poppins", sans-serif;
+            background-color: #e3f2fd; /* Light blue background */
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Navigation Bar */
+        .navbar {
+            background: #333;
+            overflow: hidden;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 30px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar .logo {
+            color: white;
+            font-size: 22px;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        .navbar ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        .navbar ul li {
+            padding: 0 15px;
+        }
+
+        .navbar ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+            padding: 10px 15px;
+            transition: 0.3s;
+        }
+
+        .navbar ul li a:hover {
+            background: #007BFF;
+            border-radius: 5px;
+        }
+
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            padding: 50px 20px;
+            background: white;
+            border-radius: 15px;
+            max-width: 1200px;
+            margin: 30px auto;
+        }
+
+        .hero h1 {
+            color: #333;
+            font-size: 36px;
+        }
+
+        .hero p {
+            font-size: 18px;
+            color: #555;
+            margin-top: 10px;
+        }
+
+        .header {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            font-size: 24px;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        .grid-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center; /* Centers items */
+            gap: 20px;
+            padding: 40px;
+            max-width: 1200px;
+            margin: auto;
+            background-color: white; /* White background for the grid */
+            border-radius: 15px;
+        }
+
+        .grid-item {
+            background: white;
+            padding: 20px;
+            text-align: center;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            flex: 1 1 250px; /* Ensures responsiveness */
+            max-width: 300px; /* Prevents items from getting too wide */
+        }
+
+        .grid-item img {
+            width: 100%;
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+        }
+
+        .grid-item h3 {
+            margin-top: 15px;
+            font-size: 18px;
+            color: #333;
+        }
+
+        .grid-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .grid-item:hover img {
+            transform: scale(1.05);
+        }
+
+        .footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            font-size: 14px;
+            margin-top: 30px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="navbar">
+        <a href="main.html">Home</a>
+
+    </div>
+
+
+    <div class="header">Tools Dashboard</div>
+
+    <div class="grid-container">
+        <div class="grid-item">
+            <a href="/tools/bmi.html"><img src="bmipic.png" alt="BMI Checker"></a>
+            <h3>BMI Checker</h3>
+        </div>
+
+        <div class="grid-item">
+            <a href="/tools/zakatcalculator.html"><img src="zakatpic.png" alt="Zakat Calculator"></a>
+            <h3>Zakat Calculator</h3>
+        </div>
+
+        <div class="grid-item">
+            <a href="/tools/unitconverter.html"><img src="unitconv.png" alt="Unit Converter"></a>
+            <h3>Unit Converter</h3>
+        </div>
+
+        <div class="grid-item">
+            <a href="/tools/gradechecker.html"><img src="gradecheckerpic.png" alt="Grade Checker"></a>
+            <h3>Grade Checker</h3>
+        </div>
+
+        <!-- Centered row for the last two items -->
+        <div class="grid-item">
+            <a href="/tools/simplecalculator.html"><img src="simplecalc.png" alt="Simple Calculator"></a>
+            <h3>Simple Calculator</h3>
+        </div>
+
+        <div class="grid-item">
+            <a href="/tools/votechecker.html"><img src="vote.png" alt="Vote Checker"></a>
+            <h3>Vote Checker</h3>
+        </div>
+    </div>
+
+    <div class="footer">© 2025 Tools Dashboard | All Rights Reserved</div>
+
+</body>
+
+</html>
+

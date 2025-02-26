@@ -1,0 +1,157 @@
+ <!DOCTYPE html>
+<html>
+    <head>
+        <title>Modern Grade Checker</title>
+        <style>
+   
+            body {
+                font-family: 'Poppins', sans-serif;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                height: 100vh;
+                background: linear-gradient(135deg, #141e30, #243b55);
+                color: white;
+                margin: 0;
+            }
+    
+            h2 {
+                text-align: center;
+                font-size: 32px;
+                margin-bottom: 15px;
+                letter-spacing: 1px;
+                text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+            }
+    
+         
+            .container {
+                background: rgba(255, 255, 255, 0.15);
+                backdrop-filter: blur(10px);
+                padding: 20px;
+                width: 350px;
+                border-radius: 15px;
+                box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+                text-align: center;
+                border: 1px solid rgba(255, 255, 255, 0.3);
+            }
+    
+        
+            .grading-table {
+                margin-top: 20px;
+                text-align: center;
+            }
+    
+            .grading-table img {
+                width: 100%;
+                border-radius: 10px;
+                box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
+            }
+    
+   
+            input {
+                width: 90%;
+                padding: 12px;
+                margin: 10px 0;
+                font-size: 18px;
+                border: 2px solid #ddd;
+                border-radius: 8px;
+                text-align: center;
+                outline: none;
+                transition: 0.3s;
+                background: rgba(255, 255, 255, 0.6);
+            }
+    
+            input:focus {
+                border-color: #00c6ff;
+                box-shadow: 0px 0px 8px rgba(0, 198, 255, 0.5);
+            }
+    
+            button {
+                padding: 12px;
+                font-size: 18px;
+                border: none;
+                background: #0072ff;
+                color: white;
+                border-radius: 8px;
+                cursor: pointer;
+                transition: 0.3s;
+                width: 100%;
+                margin-top: 10px;
+                font-weight: bold;
+            }
+    
+            button:hover {
+                background: #005bb5;
+            }
+    
+        
+            .output {
+                margin-top: 15px;
+                font-size: 20px;
+                font-weight: bold;
+                padding: 10px;
+                border-radius: 8px;
+                color: white;
+                transition: 0.3s;
+            }
+    
+            .excellent { background: #2ecc71; } 
+            .good { background: #f7b731; } 
+            .pass { background: #f39c12; } 
+            .fail { background: #e74c3c; } 
+    
+        
+            .error {
+                color: red;
+                font-weight: bold;
+                margin-top: 10px;
+            }
+    
+    
+        </style>
+    </head>
+    <script>
+        function checkGrade() {
+            let carryMark = parseFloat(document.getElementById("carryMark").value);
+            let finalExam = parseFloat(document.getElementById("finalExam").value);
+
+            if (isNaN(carryMark) || isNaN(finalExam) || carryMark > 50 || finalExam > 100) {
+                alert("Invalid input! Carry mark should be ≤ 50 and final exam ≤ 100.");
+                return;
+            }
+
+            let total = carryMark + finalExam;
+            let grade = "", point = "", achievement = "";
+
+            if (total >= 90) { grade = "A+"; point = "4.0"; achievement = "Excellent"; }
+            else if(total>=80 && total <= 89) {grade= "A"; point= "4.0"; achievement="Excellent";}
+            else if(total>=75 && total <= 79) {grade= "A-"; point= "3.67"; achievement="Excellent";}
+            else if(total>=70 && total <= 74) {grade= "B+"; point= "3.33"; achievement="Good Pass";}
+            else if(total>=65 && total <= 69) {grade= "B"; point= "3.00"; achievement="Good Pass";}
+            else if(total>=60 && total <= 64) {grade= "B-"; point= "2.67"; achievement="Pass";}
+            else if(total>=55 && total <= 59) {grade= "C+"; point= "2.33"; achievement="FAIL";}
+            else if(total>=50 && total <= 54) {grade= "C"; point= "2.00"; achievement="FAIL";}
+            else if(total>=45 && total <= 49) {grade= "C-"; point= "1.67"; achievement="FAIL";}
+            else if(total>=40 && total <= 44) {grade= "D+"; point= "1.33"; achievement="FAIL";}
+            else if(total>=35 && total <= 39) {grade= "D"; point= "1.00"; achievement="FAIL";}
+            else if(total>=30 && total <= 34) {grade= "D-"; point= "0.67"; achievement="FAIL";}
+            else { grade = "E"; point = "0.0"; achievement = "FAIL"; }
+
+            document.getElementById("result").innerHTML = `
+                <table border="1">
+                    <tr><th>Grade</th><th>Point</th><th>Achievement</th></tr>
+                    <tr><td>${grade}</td><td>${point}</td><td>${achievement}</td></tr>
+                </table>
+            `;
+        }
+    </script>
+<body>
+    <h2>Grade Checker</h2>
+    <img src="gradetable.jpg">
+    <input type="number" id="carryMark" placeholder="Carry Mark (≤50)">
+    <input type="number" id="finalExam" placeholder="Final Exam Mark (≤100)">
+    <button onclick="checkGrade()">Check Grade</button>
+    <div id="result"></div>
+</body>
+</html>

@@ -1,0 +1,136 @@
+  <!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Simple Calculator</title>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(135deg, #6a11cb, #2575fc);
+        }
+
+        .calculator {
+            background: white;
+            padding: 25px;
+            width: 350px;
+            border-radius: 12px;
+            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+
+        h2 {
+            margin-bottom: 10px;
+            color: #444;
+        }
+
+        input {
+            width: 90%;
+            padding: 12px;
+            margin: 10px 0;
+            font-size: 18px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            text-align: center;
+            outline: none;
+            transition: 0.3s;
+        }
+
+        input:focus {
+            border-color: #2575fc;
+        }
+
+        .buttons {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        button {
+            padding: 15px;
+            font-size: 20px;
+            border: none;
+            background: #2575fc;
+            color: white;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background: #6a11cb;
+        }
+
+        .clear {
+            background: red;
+            grid-column: span 3;
+        }
+
+        .clear:hover {
+            background: darkred;
+        }
+
+        .output {
+            margin-top: 15px;
+            font-size: 22px;
+            font-weight: bold;
+            color: #444;
+            padding: 10px;
+            border-radius: 8px;
+            background: #f8f8f8;
+        }
+
+    </style>
+    <script>
+        function calculate(operation) {
+            let num1 = parseFloat(document.getElementById("num1").value);
+            let num2 = parseFloat(document.getElementById("num2").value);
+            let result;
+            if (isNaN(num1) || isNaN(num2)) {
+                alert("Please enter valid numbers.");
+                return;
+            }
+            switch (operation) {
+                case 'add': 
+                result = num1 + num2; 
+                break;
+                case 'subtract': 
+                result = num1 - num2; 
+                break;
+                case 'multiply': 
+                result = num1 * num2;
+                 break;
+                case 'divide': 
+                    if (num2 === 0) {
+                        alert("Cannot divide by zero.");
+                        return;
+                    }
+                    result = num1 / num2; 
+                    break;
+            }
+            document.getElementById("result").value = result;
+        }
+
+        function clearFields() {
+            document.getElementById("num1").value = "";
+            document.getElementById("num2").value = "";
+            document.getElementById("result").value = "";
+        }
+    </script>
+</head>
+<body>
+    <h2>Simple Calculator</h2>
+    <input type="number" id="num1" placeholder="Enter first number">
+    <input type="number" id="num2" placeholder="Enter second number">
+    <button onclick="calculate('add')">+</button>
+    <button onclick="calculate('subtract')">-</button>
+    <button onclick="calculate('multiply')">×</button>
+    <button onclick="calculate('divide')">÷</button>
+    <button onclick="clearFields()">Clear</button>
+    <br><br>
+    <input type="text" id="result" readonly placeholder="Result">
+</body>
+</html>
